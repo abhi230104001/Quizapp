@@ -1,0 +1,123 @@
+//* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #496fa7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app {
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+#question {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Answer buttons styling */
+#answer-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #fff;
+    color: #2c3e50;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.btn:hover:not([disabled]) {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+}
+
+.btn:disabled {
+    cursor: no-drop;
+}
+
+/* Next button styling */
+#next-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+#next-btn:hover {
+    background-color: #2980b9;
+}
+
+/* For correct/incorrect answers (you'll use these in JavaScript) */
+.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .app {
+        padding: 20px;
+    }
+    
+    #question {
+        font-size: 20px;
+    }
+    
+    .btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+}

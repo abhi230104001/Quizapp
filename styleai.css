@@ -1,0 +1,211 @@
+/* ===== Base Styles ===== */
+:root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --secondary: #f72585;
+    --correct: #4cc9f0;
+    --incorrect: #f72585;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #91afdc 0%, #061732 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  /* ===== Quiz Container ===== */
+  .app {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    animation: float 3s ease-in-out infinite;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .app::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+  
+  .app h1 {
+    color: var(--dark);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  .app h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  
+  /* ===== Question & Answers ===== */
+  .quiz {
+    padding: 1rem 0;
+  }
+  
+  #question {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  
+  #answer-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    background: white;
+    color: var(--dark);
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn:hover:not([disabled]) {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+  }
+  
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+  
+  .btn:hover::after {
+    opacity: 1;
+  }
+  
+  /* ===== Answer Feedback ===== */
+  .btn.correct {
+    background-color: rgb(116, 223, 116);
+    border-color: var(--correct);
+    color: var(--dark);
+  }
+  
+  .btn.correct::after {
+    background: var(--correct);
+    opacity: 1;
+  }
+  
+  .btn.incorrect {
+    background-color: rgba(247, 37, 133, 0.1);
+    border-color: var(--incorrect);
+    color: var(--dark);
+  }
+  
+  .btn.incorrect::after {
+    background: var(--incorrect);
+    opacity: 1;
+  }
+  
+  /* ===== Next Button ===== */
+  #next-btn {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  #next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(67, 97, 238, 0.4);
+  }
+  
+  #next-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  /* ===== Responsive Design ===== */
+  @media (max-width: 600px) {
+    .app {
+      padding: 1.5rem;
+    }
+    
+    #question {
+      font-size: 1.1rem;
+    }
+    
+    .btn {
+      padding: 0.8rem;
+    }
+    
+    #next-btn {
+      padding: 0.8rem 1.5rem;
+    }
+  }
